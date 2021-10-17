@@ -1,0 +1,69 @@
+#!/bin/bash
+# Brian Yu
+# 10/16/21
+# Purpose: testing file for crawler. 
+# Usage: bash -v testing.sh
+# Note: most of the syntax in the beginning taken from the sample testing.sh provided in the lab instructions
+
+# Define variables
+seedURL=http://cs50tse.cs.dartmouth.edu/tse/letters/
+seedURL2=http://cs50tse.cs.dartmouth.edu/
+externalURL=www.google.com
+invalidURL=www.thisisgoingtobeinvalid.com
+wikiURL=http://cs50tse.cs.dartmouth.edu/tse/wikipedia/
+directory=/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw
+invalidDirectory=tw
+
+#####################################
+### These tests should fail ###
+
+# 1 argument
+./crawler
+see appropriate usage again
+
+# 2 arguments
+./crawler $seedURL
+see appropriate usage again
+
+# 3 arguments
+./crawler $seedURL $directory
+see appropriate usage again
+
+# 4 arguments + externalURL
+./crawler $externalURL $directory 2
+couldn't fetch the webpage/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw is the directory right now
+
+# 4 arguments + invalid directory 
+./crawler $externalURL $invalidDirectory 2
+couldn't fetch the webpagetw is the directory right now
+
+# 4 arguments + nonexistent server
+./crawler $invalidURL $directory 2
+couldn't fetch the webpage/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw is the directory right now
+
+
+
+######################################
+### These tests should pass ####
+
+# at depth 0
+./crawler $seedURL $directory 0
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw is the directory right now
+
+# at depth 1
+./crawler $seedURL $directory 1
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw is the directory right now
+
+# at depth 2
+./crawler $seedURL $directory 2
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw is the directory right now
+
+# at the base home page
+./crawler $seedURL2 $directory 1
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw is the directory right now
+
+# at the wikipedia page
+./crawler $wikiURL $directory 1
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw is the directory right now
+
+
