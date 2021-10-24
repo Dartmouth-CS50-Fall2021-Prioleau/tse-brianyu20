@@ -1,6 +1,7 @@
 # Brian Yu
 ## CS50 Fall 2021, Lab 4, crawler
-### information for the pagedir module
+## CS50 Fall 2021, Lab 5, crawler
+### information for common.
 
-1. two functions were created. One to check whether the argument passed is a valid directory to store the webpages, and another to actually wrtie in the directory. 
-2. Each functions are used once in the crawler in the while loop. 
+1. Additional function, pagedir_validate was added to the pagedir.h module. See pagedir.h for more information. 
+2. word.h and index.h were also additionally implemented. 

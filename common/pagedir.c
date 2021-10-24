@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include "pagedir.h"
 #include "../libcs50/webpage.h"
+#include "../libcs50/hashtable.h"
 
 bool check_directory(char* pageDirectory){
 
@@ -59,4 +60,24 @@ void write_directory(char* pageDirectory, webpage_t* page, int ID){
     }
     free(filename);
 
+}
+
+//see pagedir.h for more information
+bool pagedir_validate(char* filename){
+    FILE* fp = NULL;
+    //char* file = (char*) malloc(strlen(filename)+ 10);
+    //file = filename; 
+    fp = fopen(filename, "r");
+
+    if (fp != NULL){
+        fclose(fp);
+        //free(file);
+        return true;
+    }
+    else{
+        //free(file);
+        fprintf(stderr, "couldn't read the file\n");
+        return false;
+    }
+    //free(filename);
 }

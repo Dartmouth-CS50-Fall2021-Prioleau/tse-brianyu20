@@ -31,3 +31,14 @@ bool check_directory(char* pageDirectory);
  * 
 */
 void write_directory(char* pageDirectory, webpage_t* page, int ID);
+
+/**************** pagedir_validate ****************/
+/**Function to confirm that the directory is a crawler produced directory
+ * Simple function.
+ * It will try to open a file and if it's successful, it will return true. 
+ * otherwise, it will return false.
+ * 
+ * caller should put in [pagedirectory/.crawler] to check if it's a crawler produced directory 
+ * However, this function also works in general to see if a file opens. 
+*/
+bool pagedir_validate(char* filename);

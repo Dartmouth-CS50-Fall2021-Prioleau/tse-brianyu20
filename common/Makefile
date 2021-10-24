@@ -7,7 +7,7 @@
 #shortcut for directory
 L = ../libcs50
 
-OBJS = pagedir.o
+OBJS = pagedir.o word.o index.o
 LIB = common.a
 LLIBS = $L/libcs50-given.a
 
@@ -21,10 +21,11 @@ MAKE = make
 VALGRIND = valgrind --leak-check=full --show-leak-kinds=all
 
 $(LIB): $(OBJS)
-			ar cr $(LIB) $(OBJS)
+			ar cr $(LIB) $(LLIBS) $(OBJS) 
 
 pagedir.o: pagedir.h $L/webpage.h $L/file.h 
-
+word.o: word.h
+index.o: $L/hashtable.h $L/counters.h index.h
 
 .PHONY: all test valgrind clean
 
