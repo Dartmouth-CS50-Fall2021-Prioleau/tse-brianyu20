@@ -30,7 +30,7 @@ invalidfilename=iaminvalid
 ######################################
 ### These tests should pass ####
 
-./indexer ~/cs50-dev/tse-brianyu20/tw ../result
+./indexer ~/cs50-dev/tse-brianyu20/tw ./result
 
 # see testing.md for a comparison between the file produced by indexer and indextest
 
