@@ -42,22 +42,38 @@ In `tse/indexer/`,
   * 2/2 `tse/indexer/testing.out` should be the output of `make test &> testing.out`
 
 
-## (20) Coding Style
+## (18/20) Coding Style
   * 20/20 Follows [CS50 C program coding style](http://www.cs.dartmouth.edu/~cs50/Resources/CodingStyle.html).
+  * -2 "directory or file is wrong" is not a helpful/meaningful message in programs that handle arguments 2 arguments when one is a directory and the other is a file
 
 
-## (6/30) Functionality
-  * 6/6 Validation of command-line arguments in both `indexer` and `indextest`.
-  * 0/16 Correct outputs on a variety of test cases - compare with solution `indexer` and `indextest`.
-  	* segfaults on our test cases
-  	* fails your test case
-  * 0/8 `indextest` properly loads and saves the index and they've demonstrated (through testing) that the output index is equivalent to the input index.
+## (19/30) Functionality
+  * 4/6 Validation of command-line arguments in both `indexer` and `indextest`.
+  	* -2 indexer segfaults when indexFile is not writable 
+  * 10/16 Correct outputs on a variety of test cases 
+  	* -2 indexer requirements states that the indexer should ignore words with less than 3 letters. your indexer ignores words with 3 letters. while this may seem pedantic, this does prevent significant terms from being indexed.
+  	* -4 part of the required functionality is to create/overwrite the indexfile that is passed in. 
+		* segfaults/fails on our test cases 
+		* fails your test case
+  * 5/8 `indextest` properly loads and saves the index and they've demonstrated (through testing) that the output index is equivalent to the input index.
+ 	* -3 the TESTING.md file does not demonstrate equivalence of the input and output index (4 pre-selected terms does not prove equivalence) 
+  	* indextest passes our test cases only after indexfile is created and made writable
 
 
 ## (6/10) Memory leaks, according to valgrind
 for both `indexer` and `indextest`.
 
   * 0/4 free of *memory errors*.
+``` C
+		==27252== HEAP SUMMARY:
+		==27252==     in use at exit: 0 bytes in 0 blocks
+		==27252==   total heap usage: 2,336,754 allocs, 2,336,754 frees, 42,744,272,672 bytes allocated
+		==27252== 
+		==27252== All heap blocks were freed -- no leaks are possible
+		==27252== 
+		==27252== For counts of detected and suppressed errors, rerun with: -v
+		==27252== ERROR SUMMARY: 13 errors from 4 contexts (suppressed: 0 from 0)
+```
   * 2/4 free of *lost memory blocks*.
     * Memory leak in the case of a bad pagedir or index file input (file not writable or directory not readable).
 
@@ -106,4 +122,4 @@ Command: ./indexer ../../lab5-soln/indexer/data/tse-output//toscrape-depth-1/ te
   * 2/2 free of *still reachable* memory blocks.
 
 
-  # Overall: 63/100
+  # Overall: 74/100
