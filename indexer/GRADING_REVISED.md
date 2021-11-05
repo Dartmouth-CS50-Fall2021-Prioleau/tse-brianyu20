@@ -38,7 +38,9 @@ In `tse/indexer/`,
 
   * 4/8 `tse/indexer/testing.sh` should have good test cases and good comments
     * too few test cases in testing.sh (next time test on creating a variety of different indexes of varying size) 
+    * 
     * does not test indextest.c
+  * 
   * 2/2 `tse/indexer/testing.out` should be the output of `make test &> testing.out`
 
 
@@ -53,8 +55,9 @@ In `tse/indexer/`,
   * 10/16 Correct outputs on a variety of test cases 
   	* -2 indexer requirements states that the indexer should ignore words with less than 3 letters. your indexer ignores words with 3 letters. while this may seem pedantic, this does prevent significant terms from being indexed.
   	* -4 part of the required functionality is to create/overwrite the indexfile that is passed in. 
-		* segfaults/fails on our test cases 
-		* fails your test case
+  		* Requires creating a blank file before testing. Otherwise, 
+			* segfaults/fails on our test cases 
+			* fails your test case
   * 5/8 `indextest` properly loads and saves the index and they've demonstrated (through testing) that the output index is equivalent to the input index.
  	* -3 the TESTING.md file does not demonstrate equivalence of the input and output index (4 pre-selected terms does not prove equivalence) 
   	* indextest passes our test cases only after indexfile is created and made writable
