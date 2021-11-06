@@ -9,3 +9,5 @@ To clean up, run `make clean`.
 
 * all testing was done in a file named 'tw' within the tse-brianyu20 file. 
 * I did not import my own modules in libcs50, so I'm using libcs50-given.a
+* indexer used the 'tw' file. indexer produced its output to result. 
+* indexertest used result, and then produced result2.

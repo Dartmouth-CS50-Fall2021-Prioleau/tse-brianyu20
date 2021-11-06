@@ -1,0 +1,45 @@
+#!/bin/bash
+# Brian Yu
+# 10/23/21
+# Purpose: testing file for indexer. 
+# Usage: bash -v testing.sh
+
+#Defining variables
+directory=~/cs50-dev/tse-brianyu20/tw
+indexFilename=../result
+newIndexFilename=../result2
+
+invalidDirectory=this/is/not/valid
+invalidfilename=iaminvalid
+
+#####################################
+### These tests should fail ###
+
+#1 argument
+./indexer
+See correct usage again.
+
+# 2 arguments
+./indexer directory
+See correct usage again.
+
+#  correct number of argument but invalid directory
+./indexer invalidDirectory indexFilename
+directory or file is wrong
+
+# correct number of argument but invalid file
+./indexer directory invalidfilename
+directory or file is wrong
+
+######################################
+### These tests should pass ####
+
+./indexer ~/cs50-dev/tse-brianyu20/tw ../result
+couldn't read the file
+current file name is /thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw/1
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw/2 is the file right now
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw/3 is the file right now
+/thayerfs/home/f002vv6/cs50-dev/tse-brianyu20/tw/4 is the file right now
+
+# see testing.md for a comparison between the file produced by indexer and indextest
+
