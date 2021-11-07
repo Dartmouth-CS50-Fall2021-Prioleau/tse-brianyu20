@@ -20,6 +20,9 @@
 |Memory Usage|0/10|
 |**TOTAL**|**64**|
 
+**Late Penalty: for 24 Hours: -10**
+**FINAL SCORE: 54**
+
 &nbsp;
 
 Take a look at the [solution](./lab6-soln/querier/).
