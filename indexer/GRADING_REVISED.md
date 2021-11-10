@@ -38,15 +38,16 @@ In `tse/indexer/`,
 
   * 4/8 `tse/indexer/testing.sh` should have good test cases and good comments
     * too few test cases in testing.sh (next time test on creating a variety of different indexes of varying size) 
-    * 
+    * In addition, all testing in testing.sh was given in an example file. No additional testing were added.
     * does not test indextest.c
   * 
   * 2/2 `tse/indexer/testing.out` should be the output of `make test &> testing.out`
 
 
-## (18/20) Coding Style
+## (18/20) + 2 Coding Style
   * 20/20 Follows [CS50 C program coding style](http://www.cs.dartmouth.edu/~cs50/Resources/CodingStyle.html).
   * -2 "directory or file is wrong" is not a helpful/meaningful message in programs that handle arguments 2 arguments when one is a directory and the other is a file
+  	* Updated: The message is not the best worded but still understandable (+2) 
 
 
 ## (19/30) Functionality
@@ -63,7 +64,7 @@ In `tse/indexer/`,
   	* indextest passes our test cases only after indexfile is created and made writable
 
 
-## (6/10) Memory leaks, according to valgrind
+## (6/10) + 2 Memory leaks, according to valgrind
 for both `indexer` and `indextest`.
 
   * 0/4 free of *memory errors*.
@@ -77,8 +78,9 @@ for both `indexer` and `indextest`.
 		==27252== For counts of detected and suppressed errors, rerun with: -v
 		==27252== ERROR SUMMARY: 13 errors from 4 contexts (suppressed: 0 from 0)
 ```
-  * 2/4 free of *lost memory blocks*.
+  * 4/4 free of *lost memory blocks*.
     * Memory leak in the case of a bad pagedir or index file input (file not writable or directory not readable).
+    * Update: +2 because this memory leak is directly from file not writable or directory not readable. Points have already been taken off for that above. 
 
 Command: ./indexer ../../lab5-soln/indexer/data/tse-output//toscrape-depth-1/ testing.index2
 ```C
@@ -125,4 +127,4 @@ Command: ./indexer ../../lab5-soln/indexer/data/tse-output//toscrape-depth-1/ te
   * 2/2 free of *still reachable* memory blocks.
 
 
-  # Overall: 74/100
+  # Overall: 74/100 + 4 = 78/100
